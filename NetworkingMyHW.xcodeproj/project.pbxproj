@@ -14,10 +14,10 @@
 		E33D088E2802C9D7002475AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E33D088C2802C9D7002475AD /* LaunchScreen.storyboard */; };
 		E33D089A2802D433002475AD /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33D08992802D433002475AD /* ImageViewController.swift */; };
 		E33D089C2802D55E002475AD /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33D089B2802D55E002475AD /* CoursesViewController.swift */; };
-		E33D089E2802D678002475AD /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33D089D2802D678002475AD /* CourseCell.swift */; };
 		E33D08A22802D723002475AD /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33D08A12802D723002475AD /* Course.swift */; };
 		E33D08AA28034203002475AD /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33D08A928034203002475AD /* UserActionCell.swift */; };
 		E33D08CE28060757002475AD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33D08CD28060757002475AD /* MainViewController.swift */; };
+		E343439028075309008B5FB2 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E343438F28075309008B5FB2 /* CourseCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +30,10 @@
 		E33D088F2802C9D7002475AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E33D08992802D433002475AD /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		E33D089B2802D55E002475AD /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
-		E33D089D2802D678002475AD /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
 		E33D08A12802D723002475AD /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		E33D08A928034203002475AD /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
 		E33D08CD28060757002475AD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E343438F28075309008B5FB2 /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,15 +67,15 @@
 			isa = PBXGroup;
 			children = (
 				E33D08CD28060757002475AD /* MainViewController.swift */,
-				E33D089B2802D55E002475AD /* CoursesViewController.swift */,
-				E33D089D2802D678002475AD /* CourseCell.swift */,
-				E33D08A928034203002475AD /* UserActionCell.swift */,
 				E33D08992802D433002475AD /* ImageViewController.swift */,
+				E33D089B2802D55E002475AD /* CoursesViewController.swift */,
+				E343438F28075309008B5FB2 /* CourseCell.swift */,
+				E33D08A928034203002475AD /* UserActionCell.swift */,
 				E33D08A12802D723002475AD /* Course.swift */,
 				E33D08872802C9D6002475AD /* Main.storyboard */,
+				E33D088C2802C9D7002475AD /* LaunchScreen.storyboard */,
 				E33D08812802C9D6002475AD /* AppDelegate.swift */,
 				E33D08832802C9D6002475AD /* SceneDelegate.swift */,
-				E33D088C2802C9D7002475AD /* LaunchScreen.storyboard */,
 				E33D088A2802C9D7002475AD /* Assets.xcassets */,
 				E33D088F2802C9D7002475AD /* Info.plist */,
 			);
@@ -154,10 +154,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E33D08A22802D723002475AD /* Course.swift in Sources */,
-				E33D089E2802D678002475AD /* CourseCell.swift in Sources */,
 				E33D089C2802D55E002475AD /* CoursesViewController.swift in Sources */,
 				E33D08822802C9D6002475AD /* AppDelegate.swift in Sources */,
 				E33D08AA28034203002475AD /* UserActionCell.swift in Sources */,
+				E343439028075309008B5FB2 /* CourseCell.swift in Sources */,
 				E33D089A2802D433002475AD /* ImageViewController.swift in Sources */,
 				E33D08842802C9D6002475AD /* SceneDelegate.swift in Sources */,
 				E33D08CE28060757002475AD /* MainViewController.swift in Sources */,

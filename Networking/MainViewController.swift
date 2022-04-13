@@ -55,66 +55,34 @@ class MainViewController: UICollectionViewController {
         }
         print(indexPath.item)
     }
-
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//
-//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-//
-//        // Do any additional setup after loading the view.
-//    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
-
-
-    // MARK: UICollectionViewDelegateFloeLayout
-
-//
-
-
-
-    // MARK: UICollectionViewDelegateFloeLayout
-
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showCourses" {
+            guard let coursesVC = segue.destination as? CoursesViewController else { return }
+            coursesVC.fetchCourses()
+        }
     }
-    */
+    
+    private func successAlert() {
+        DispatchQueue.main.async {
+            let alert = UIAlertController (title: "Success", message: "You can see the results in the Debug aria", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default)
+            alert.addAction(okAction)
+            self.present(alert, animated: true)
+        }
+    }
+    
+    private func failedAlert() {
+        DispatchQueue.main.async {
+            let alert = UIAlertController (title: "Failed", message: "You can see error in the Debug aria", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default)
+            alert.addAction(okAction)
+            self.present(alert, animated: true)
+        }
+    }
+    
+
+
 
 }
 
@@ -127,18 +95,81 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 extension MainViewController {
     
     private func fetchCourse() {
+        guard let url = URL(string: Link.courseURL.rawValue) else { return }
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "No error description")
+                return
+            }
+            do {
+                let course = try JSONDecoder().decode(Course.self, from: data)
+                self.successAlert()
+                print(course)
+                
+            } catch let error {
+                self.failedAlert()
+                print(error.localizedDescription)
+            }
+        }.resume()
   
     }
     
     private func fetchCourses() {
-        
+        guard let url = URL(string: Link.coursesURL.rawValue) else { return }
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "No error description")
+                return
+            }
+            do {
+                let courses = try JSONDecoder().decode([Course].self, from: data)
+                self.successAlert()
+                print(courses)
+                
+            } catch let error {
+                self.failedAlert()
+                print(error.localizedDescription)
+            }
+        }.resume()
     }
 
     private func fetchInfoAboutUs() {
+        guard let url = URL(string: Link.aboutUsURL.rawValue) else { return }
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "No error description")
+                return
+            }
+            do {
+                let aboutUs = try JSONDecoder().decode(AboutUs.self, from: data)
+                self.successAlert()
+                print(aboutUs)
+                
+            } catch let error {
+                self.failedAlert()
+                print(error.localizedDescription)
+            }
+        }.resume()
                     
     }
     
     private func fetchInfoAboutUsWithEmptyFields() {
+        guard let url = URL(string: Link.aboutUsURL2.rawValue) else { return }
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "No error description")
+                return
+            }
+            do {
+                let aboutUs = try JSONDecoder().decode(AboutUs.self, from: data)
+                self.successAlert()
+                print(aboutUs)
+                
+            } catch let error {
+                self.failedAlert()
+                print(error)
+            }
+        }.resume()
 
     }
 }
